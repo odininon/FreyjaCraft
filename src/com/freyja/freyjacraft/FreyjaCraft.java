@@ -1,5 +1,6 @@
 package com.freyja.freyjacraft;
 
+import com.freyja.freyjacraft.block.notGateBlock;
 import com.freyja.freyjacraft.handler.ConfigurationHandler;
 import com.freyja.freyjacraft.handler.PluginHandler;
 import com.freyja.freyjacraft.item.LootBall;
@@ -89,7 +90,7 @@ public class FreyjaCraft
 
     private void registerBlocks()
     {
-
+        blocks.put(new notGateBlock(Settings.NoteGate).setUnlocalizedName("notGate").setCreativeTab(tab), "Not Gate");
 
     }
 

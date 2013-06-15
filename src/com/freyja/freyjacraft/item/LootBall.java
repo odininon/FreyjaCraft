@@ -18,12 +18,10 @@ import java.util.Random;
  * @author Freyja
  *         Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class LootBall extends Item
-{
+public class LootBall extends Item {
     private final Random rand;
 
-    public LootBall(int par1)
-    {
+    public LootBall(int par1) {
         super(par1);
 
         this.rand = new Random();
@@ -31,8 +29,7 @@ public class LootBall extends Item
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public static void addList(ItemStack ball, List<ItemStack> items)
-    {
+    public static void addList(ItemStack ball, List<ItemStack> items) {
         NBTTagCompound tagCompound = ball.getTagCompound();
         if (!ball.hasTagCompound()) {
             tagCompound = new NBTTagCompound();
@@ -52,22 +49,25 @@ public class LootBall extends Item
 
 
     @ForgeSubscribe
-    public void pickup(EntityItemPickupEvent event)
-    {
+    public void pickup(EntityItemPickupEvent event) {
         EntityPlayer player = event.entityPlayer;
         ItemStack entityItem = event.item.getEntityItem();
 
         if (entityItem.getItem() instanceof LootBall) {
             NBTTagCompound tagCompound = entityItem.getTagCompound();
 
-            if (!entityItem.hasTagCompound()) { tagCompound = new NBTTagCompound(); }
+            if (!entityItem.hasTagCompound()) {
+                tagCompound = new NBTTagCompound();
+            }
 
             NBTTagList items = tagCompound.getTagList("Items");
 
             for (int i = 0; i < items.tagCount(); i++) {
                 NBTTagCompound compound = (NBTTagCompound) items.tagAt(i);
 
-                player.inventory.addItemStackToInventory(ItemStack.loadItemStackFromNBT(compound));
+                if (!player.inventory.addItemStackToInventory(ItemStack.loadItemStackFromNBT(compound))) {
+                    return;
+                }
             }
 
             GameRegistry.onPickupNotification(player, event.item);
