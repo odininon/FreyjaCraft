@@ -68,6 +68,7 @@ public class LootBall extends Item {
                 if (!player.inventory.addItemStackToInventory(ItemStack.loadItemStackFromNBT(compound))) {
                     return;
                 }
+                items.removeTag(i);
             }
 
             GameRegistry.onPickupNotification(player, event.item);

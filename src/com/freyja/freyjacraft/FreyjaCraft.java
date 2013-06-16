@@ -1,5 +1,16 @@
 package com.freyja.freyjacraft;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+
 import com.freyja.freyjacraft.block.notGateBlock;
 import com.freyja.freyjacraft.handler.ConfigurationHandler;
 import com.freyja.freyjacraft.handler.PluginHandler;
@@ -10,6 +21,7 @@ import com.freyja.freyjacraft.lib.Strings;
 import com.freyja.freyjacraft.plugins.FreyjaPlugin;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -19,16 +31,6 @@ import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.ItemData;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * @author Freyja

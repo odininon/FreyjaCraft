@@ -27,7 +27,7 @@ public class UltimateAxe extends ItemAxe {
 
     @Override
     public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(Strings.MODID + ":" + "ultimate_axe");
+        this.itemIcon = par1IconRegister.registerIcon(Strings.MODID + ":" + this.getUnlocalizedName());
     }
 
     @Override
