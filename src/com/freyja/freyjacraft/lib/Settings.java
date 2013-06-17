@@ -15,4 +15,7 @@ public class Settings {
 
     public static final int NoteGate_DEFAULT = 1502;
     public static int NoteGate;
+
+    public static final int ItemBag_DEFAULT = 1503;
+    public static int ItemBag;
 }

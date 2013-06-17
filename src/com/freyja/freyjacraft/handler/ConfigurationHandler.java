@@ -25,6 +25,7 @@ public class ConfigurationHandler
             Settings.LootBall = config.getItem("LootBall", Settings.LootBall_DEFAULT).getInt();
             Settings.UlimateAxe = config.getItem("UltimateAxe", Settings.UltimateAxe_DEFAULT).getInt();
             Settings.NoteGate = config.getBlock("Note Gate", Settings.NoteGate_DEFAULT).getInt();
+            Settings.ItemBag = config.getItem("ItemBag", Settings.LootBall_DEFAULT).getInt();
 
         } catch (Exception ex) {
             FreyjaCraft.logger.info("Error Loading configuration.");

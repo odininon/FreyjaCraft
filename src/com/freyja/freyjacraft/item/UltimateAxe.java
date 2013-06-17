@@ -27,7 +27,7 @@ public class UltimateAxe extends ItemAxe {
 
     @Override
     public void registerIcons(IconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(Strings.MODID + ":" + this.getUnlocalizedName());
+        this.itemIcon = par1IconRegister.registerIcon(Strings.MODID + ":" + this.getUnlocalizedName().substring(getUnlocalizedName().indexOf(".") + 1));
     }
 
     @Override
@@ -45,11 +45,13 @@ public class UltimateAxe extends ItemAxe {
             int i = Block.blocksList[blockId].idDropped(0, new Random(), 0);
             int i1 = Block.blocksList[blockId].damageDropped(meta);
             ItemStack itemStack = new ItemStack(i, 1, i1);
-            for (ItemStack stack : player.inventory.mainInventory) {
-                if (stack == null) {
-                    stackSize += itemStack.getMaxStackSize();
-                } else if (ItemStack.areItemStacksEqual(stack, itemStack)) {
-                    stackSize += (stack.getMaxStackSize() - stack.stackSize);
+            if (itemstack != null) {
+                for (ItemStack stack : player.inventory.mainInventory) {
+                    if (stack == null) {
+                        stackSize += itemStack.getMaxStackSize();
+                    } else if (ItemStack.areItemStacksEqual(stack, itemStack)) {
+                        stackSize += (stack.getMaxStackSize() - stack.stackSize);
+                    }
                 }
             }
 
@@ -61,7 +63,7 @@ public class UltimateAxe extends ItemAxe {
 
             if (!player.capabilities.isCreativeMode && itemDrops.size() > 0) {
                 ItemStack lootBall = new ItemStack(FreyjaCraft.items.inverse().get("Loot Bag"));
-                LootBall.addList(lootBall, itemDrops);
+                ((LootBall)lootBall.getItem()).addList(lootBall, itemDrops);
 
                 float f = 0.7F;
                 double d0 = (double) (world.rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
